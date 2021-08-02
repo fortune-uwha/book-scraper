@@ -167,7 +167,6 @@ class BooksScraper:
         except ValueError:
             return np.nan
 
-    @property
     def collect_information(self) -> pd.DataFrame:
         """
         Function which combines all functions required for scraping.
@@ -192,6 +191,62 @@ class BooksScraper:
         if self._export_to_csv:
             self.export_to_csv(book_details)
         return book_details
+
+    def export_to_csv(self, data: pd.DataFrame) -> None:
+        """
+        Exports a dataframe to a .csv file in working dir.
+
+        :param data: pandas dataframe
+        :return: None
+        """
+        now = datetime.now()
+        timestamp = now.strftime("%Y-%m-%d_%H-%M-%S")
+        data.to_csv(f"{self.category}_{timestamp}.csv", index=False)
+        return
+class CleanBookScraper(BooksScraper):
+    """ A subclass of BooksScraper specifically tailored to clean data on bookdepository.com. 
+    Takes all functionality of the BooksScraper class for re-use.
+
+    """
+
+    def __init__(self, number_of_samples: int, category: str, export_to_csv: bool = False) -> None:
+        """
+        Initialization
+        :param number_of_samples: The number of samples of data to be scraped. 
+        :category: book category to be scraped
+        :param bool export_to_csv: Should the scraped data be exported to csv?
+        """
+        super().__init__(number_of_samples, category)
+        self._export_to_csv = export_to_csv
+
+    @staticmethod
+    def process_data(data: pd.DataFrame) -> pd.DataFrame:
+        """
+        Function which cleans book data from the provided Dataframe.
+
+        :param data: Scraped data containing book info.
+        
+        :return: pandas dataframe
+        """
+        data['title'] = data['title'].str.strip()
+        data['price'] = data['price'].str.replace("\n", "")
+        data['price'] = data["price"].str.split("$", n=2, expand=True)[1]
+        data['price'] = data['price'].str.replace("US", "")
+        data['price'] = data['price'].str.replace("R", "")
+        data['price'] = data['price'].str.strip()
+        return data.dropna()
+
+    def clean_dataframe(self) -> pd.DataFrame:
+        """
+        Function which combines all functions required for cleaning scraped data.
+
+        :return: pandas aataFrame.
+        """
+
+        data = self.process_data(self.collect_information())
+        if self._export_to_csv:
+            self.export_to_csv(data)
+        return data
 
     def export_to_csv(self, data: pd.DataFrame) -> None:
         """
