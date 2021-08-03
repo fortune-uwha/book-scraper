@@ -244,6 +244,7 @@ class CleanBookScraper(BooksScraper):
         """
 
         data = self.process_data(self.collect_information())
+        data['category'] = self.category
         if self._export_to_csv:
             self.export_to_csv(data)
         return data
