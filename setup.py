@@ -37,7 +37,6 @@ setuptools.setup(
         'PyYAML==5.4.1',
         'pyzmq==20.0.0',
         'QtPy==1.9.0',
-        'sip==4.19.13',
         'soupsieve==2.2.1'
     ],
     classifiers=[
