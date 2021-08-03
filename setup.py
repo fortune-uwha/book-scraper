@@ -34,8 +34,6 @@ setuptools.setup(
         'pandas==1.3.1',
         'parso==0.7.0',
         'pathspec==0.7.0',
-        'pywin32==228',
-        'pywin32-ctypes==0.2.0',
         'PyYAML==5.4.1',
         'pyzmq==20.0.0',
         'QtPy==1.9.0',
