@@ -229,6 +229,8 @@ class CleanBookScraper(BooksScraper):
         :return: pandas dataframe
         """
         data['title'] = data['title'].str.strip()
+        data['title'] = data['title'].str.replace("'", "")
+        data['author'] = data['author'].str.replace("'", "")
         data['price'] = data['price'].str.replace("\n", "")
         data['price'] = data["price"].str.split("$", n=2, expand=True)[1]
         data['price'] = data['price'].str.replace("US", "")
