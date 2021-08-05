@@ -66,7 +66,7 @@ class BooksScraper:
             page = requests.get(url, headers=header)
             soup = BeautifulSoup(page.content, "html.parser")
         if not page.ok:
-            print(f"There is a {self.page} error. Please check your URL.")
+            print(f"There is a {page} error. Please check your URL.")
         else:
             return soup
 
