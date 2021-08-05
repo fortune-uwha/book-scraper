@@ -39,13 +39,28 @@ scraper.clean_dataframe()
 ```
 For more information just type help(BooksScraper) or help(CleanBookScraper).
 
+## Extra Configuration
+In order to use the Database class, you will need to create a postgreSQL database on Heroku or any other platform and enter the authentication credentials into config.py file.
+
+- Initialization
+```python
+from database.database import Database
+db = Database()
+```
+Example functions
+* These functions will be executed by running main.py. Feel free to edit the variables to suit your requirements.
+  * delete_tables() - Drops categories and books tables. Handle with care - this will destroy your data!
+  * create_tables() - Creates categories and books tables and sets up foreign keys.
+  * insert_data_into_db(dataframe, category) - Inserts the data from dataframe into a database.
+  * export_to_csv() - Fetches the data from the database and exports as .csv file.
+
 ## Features
 Based on specified category, BooksScraper collects information on:
-* Book title
-* Book author
-* Book price
-* Book item url
-* Book image url
+- [x] Book title
+- [x] Book author
+- [x] Book price
+- [x] Book item url
+- [x] Book image url
 
 ## Project Status
 Project is: in progress
