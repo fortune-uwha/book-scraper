@@ -8,6 +8,7 @@
 * [General Information](#general-information)
 * [Installation](#installation)
 * [Usage](#usage)
+* [Extra Configuration](#extra-configuration)
 * [Features](#features)
 * [Project Status](#project-status)
 * [Acknowledgements](#acknowledgements)
