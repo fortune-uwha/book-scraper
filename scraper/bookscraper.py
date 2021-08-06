@@ -38,7 +38,8 @@ class BooksScraper:
         Calculates number of pages that will be scraped
         based on number of samples user wants to get.
         By default, each page has 30 samples.
-
+        
+        :param : None
         :return: number of pages that will be scraped.
 
         """
@@ -170,7 +171,8 @@ class BooksScraper:
     def collect_information(self) -> pd.DataFrame:
         """
         Function which combines all functions required for scraping.
-
+        
+        :param : None
         :return: pandas dataFrame.
         """
         print(
@@ -241,7 +243,8 @@ class CleanBookScraper(BooksScraper):
     def clean_dataframe(self) -> pd.DataFrame:
         """
         Function which combines all functions required for cleaning scraped data.
-
+        
+        :param : None
         :return: pandas aataFrame.
         """
 
