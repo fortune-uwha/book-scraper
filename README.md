@@ -60,6 +60,9 @@ Based on specified category, BooksScraper collects information on:
 - [x] Book title
 - [x] Book author
 - [x] Book price
+- [x] Book edition
+- [x] Book publish date
+- [x] Book category
 - [x] Book item url
 - [x] Book image url
 
