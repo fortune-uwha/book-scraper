@@ -22,7 +22,7 @@ This is an automated data collection package (web-scraper) that is specifically 
 Use the package installer [pip](https://pip.pypa.io/en/stable/) to install book scraper.
 * Install directly from github repository
 ```python
-!pip install git+https://github.com/fortune-uwha/scrape_books
+!pip install git+https://github.com/fortune-uwha/book_scraper
 ```
 ## Usage
 The BooksScraper takes two arguments: number of examples to scrape and keyword to search. This returns a Pandas DataFrame with the records, with an option to export to a csv file.
